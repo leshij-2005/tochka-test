@@ -1,0 +1,8 @@
+<article class="article">
+  <h1>{{article.title}}</h1>
+  <div class="content">{{article.content}}</div>
+  <footer>
+    <button (click)="goBack()">Назад</button>
+    <button *ngIf="!article.isRead" (click)="readArticle()">Ознакомлен</button>
+  </footer>
+</article>

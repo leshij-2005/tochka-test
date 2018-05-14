@@ -1,5 +1,9 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Location } from '@angular/common';
+
 import { Article } from './article';
+import { EventService } from '../events/event.service';
 
 @Component({
   selector: 'app-article',
@@ -10,7 +14,26 @@ import { Article } from './article';
 export class ArticleComponent implements OnInit {
   @Input() article: Article;
 
-  constructor() {}
+  constructor(private route: ActivatedRoute, private eventService: EventService, private location: Location) {}
 
-  ngOnInit() {}
+  ngOnInit(): void {
+    this.getArticle();
+  }
+
+  getArticle(): void {
+    const id = +this.route.snapshot.paramMap.get('id');
+
+    this.eventService.getEvent(id)
+      .subscribe((event: Article) => this.article = event);
+  }
+
+  goBack(): void {
+    this.location.back();
+  }
+
+  readArticle(): void {
+    this.article.isRead = true;
+
+    this.goBack();
+  }
 }

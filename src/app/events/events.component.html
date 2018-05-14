@@ -12,7 +12,7 @@
       </div>
     </div>
 
-    <div *ngIf="event.type==='article'" class="event__wrap event__article {{!event.isRead ? 'event__article_unread' : ''}}">
+    <div routerLink="/article/{{event.id}}" *ngIf="event.type==='article'" class="event__wrap event__article {{!event.isRead ? 'event__article_unread' : ''}}">
       <div class="event__id">{{event.id}}</div>
       <div class="event__date">{{event.date}}</div>
       <div class="event__inner">

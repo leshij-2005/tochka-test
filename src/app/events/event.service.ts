@@ -20,6 +20,10 @@ export class EventService {
   }
 
   getEvent(id: number): Observable<Object> {
-    return of(this.events.find(event => event.id === id));
+    if (!this.events.length) {
+      this.events = events;
+    }
+
+    return of(this.events.find(event => event.id === id))
   }
 }
