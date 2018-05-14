@@ -1,6 +1,9 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Location } from '@angular/common';
 
 import { Event } from '../events/event';
+import { EventService } from '../events/event.service';
 
 @Component({
   selector: 'app-event-detail',
@@ -11,11 +14,20 @@ import { Event } from '../events/event';
 export class EventDetailComponent implements OnInit {
   @Input() event: Event;
 
-  constructor() {}
+  constructor(private route: ActivatedRoute, private eventService: EventService, private location: Location) {}
 
-  onClose(): void {
-    this.event = null;
+  goBack(): void {
+    this.location.back();
   }
 
-  ngOnInit() {}
+  ngOnInit(): void {
+    this.getEvent();
+  }
+
+  getEvent(): void {
+    const id = +this.route.snapshot.paramMap.get('id');
+
+    this.eventService.getEvent(id)
+      .subscribe(event => this.event = event);
+  }
 }

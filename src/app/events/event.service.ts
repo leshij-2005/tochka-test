@@ -15,4 +15,8 @@ export class EventService {
   getEvents(): Observable<Event[]> {
     return of(EVENTS);
   }
+
+  getEvent(id: number): Observable<Event> {
+    return of(EVENTS.find(event => event.id === id));
+  }
 }

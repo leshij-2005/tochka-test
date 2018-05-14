@@ -10,19 +10,13 @@ import { EventService } from './event.service';
 })
 
 export class EventsComponent implements OnInit {
-  constructor(private eventService: EventService) {}
-
   events: Event[];
 
-  selectedEvent: Event;
+  constructor(private eventService: EventService) {}
 
   getEvents(): void {
     this.eventService.getEvents()
       .subscribe(events => this.events = events);
-  }
-
-  onSelect(event: Event): void {
-    this.selectedEvent = event;
   }
 
   ngOnInit() {

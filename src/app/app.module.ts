@@ -6,6 +6,8 @@ import { AppComponent } from './app.component';
 import { EventsComponent } from './events/events.component';
 import { EventDetailComponent } from './detail/detail.component';
 
+import { AppRoutingModule } from './app-routing.module';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -14,9 +16,10 @@ import { EventDetailComponent } from './detail/detail.component';
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    AppRoutingModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [ AppComponent ]
 })
 export class AppModule { }
