@@ -2,7 +2,6 @@ import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 
-import { Event } from '../events/event';
 import { EventService } from '../events/event.service';
 
 @Component({

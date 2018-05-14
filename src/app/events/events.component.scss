@@ -1,0 +1,106 @@
+.event
+{cursor: pointer;
+
+  &__wrap
+  {
+    display: flex;
+    align-items: center;
+
+    padding: 10px 0;
+
+    transition: .3s;
+
+    > *
+    {
+      padding: 0 10px;
+    }
+  }
+
+  &__id
+  {
+    width: 5%;
+    flex-shrink: 1;
+
+    text-align: center;
+  }
+
+  &__date
+  {
+    width: 30%;
+    flex-shrink: 1;
+  }
+
+  &__inner
+  {
+    display: flex;
+    align-items: center;
+
+    width: 100%;
+
+    > *
+    {
+      width: 100%;
+    }
+  }
+
+  &__action
+  {
+    opacity: 0;
+    visibility: hidden;
+
+    text-align: right;
+
+    transition: .3s;
+  }
+
+  &:hover &__action
+  {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  &__transaction
+  {
+    &_in
+    {
+      background: rgb(151, 199, 151);
+
+      &:hover
+      {
+        background: rgba(151, 199, 151, .5);
+      }
+    }
+
+    &_out
+    {
+      background: rgb(245, 179, 169);
+
+      &:hover
+      {
+        background: rgba(245, 179, 169, .5);
+      }
+    }
+  }
+
+  &__article
+  {
+    &_unread
+    {
+      background: #eee;
+
+      &:hover
+      {
+        background: transparent;
+      }
+    }
+
+    &-read
+    {
+      margin-left: auto;
+      text-align: right;
+
+      color: #666;
+      font-size: 12px;
+    }
+  }
+}

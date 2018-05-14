@@ -1,6 +1,25 @@
 <div class="events">
   <div class="event" *ngFor="let event of events">
-    <app-transaction *ngIf="event.type==='transaction'" [transaction]="event"></app-transaction>
-    <app-article *ngIf="event.type==='article'" [article]="event"></app-article>
+
+    <div *ngIf="event.type==='transaction'" class="event__wrap event__transaction event__transaction_{{event.direction}}">
+      <div class="event__id">{{event.id}}</div>
+      <div class="event__date">{{event.date}}</div>
+      <div class="event__inner">
+        <div class="event__transaction-direction">{{event.direction === 'in' ? '+' : '-'}}</div>
+        <div class="event__transaction-amount">{{event.amount}} {{event.currency}}</div>
+        <div class="event__transaction-from">{{event.from}}</div>
+        <div class="event__action"><button (click)="removeEvent(event.id)">Удалить</button></div>
+      </div>
+    </div>
+
+    <div *ngIf="event.type==='article'" class="event__wrap event__article {{!event.isRead ? 'event__article_unread' : ''}}">
+      <div class="event__id">{{event.id}}</div>
+      <div class="event__date">{{event.date}}</div>
+      <div class="event__inner">
+        <div class="event__article-ttl">{{event.title}}</div>
+        <div class="event__article-read">{{event.isRead ? 'Прочитано' : ''}}</div>
+        <div *ngIf="!event.isRead" class="event__action"><button (click)="readArticle(event)">Ознакомился</button></div>
+      </div>
+    </div>
   </div>
 </div>

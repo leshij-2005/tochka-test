@@ -3,4 +3,5 @@ export class Article {
   date: Date;
   title: string;
   content: string;
+  isRead: boolean;
 }
