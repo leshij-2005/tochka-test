@@ -1,0 +1,7 @@
+<ul>
+  <li *ngFor="let event of events" (click)="onSelect(event)" [class.selected]="event === selectedEvent">
+    <b>{{event.id}}</b> {{event.name}}
+  </li>
+</ul>
+
+<app-event-detail [event]="selectedEvent"></app-event-detail>
