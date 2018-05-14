@@ -1,4 +1,5 @@
-.selected
+.event__wrap
 {
-  color: red;
+  display: flex;
+  align-items: center;
 }

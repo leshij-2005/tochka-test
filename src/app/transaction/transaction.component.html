@@ -1,0 +1,9 @@
+<div class="event__wrap event__transaction event__transaction_{{transaction.direction}}">
+  <div class="event__id">{{transaction.id}}</div>
+  <div class="event__date">{{transaction.date}}</div>
+  <div class="event__inner">
+    <div class="event__transaction-direction">{{transaction.direction === 'in' ? '+' : '-'}}</div>
+    <div class="event__transaction-amount">{{transaction.amount}} {{transaction.currency}}</div>
+    <div class="event__transaction-from">{{transaction.from}}</div>
+  </div>
+</div>

@@ -1,5 +1,6 @@
-<ul>
-  <li *ngFor="let event of events">
-    <b>{{event.id}}</b> <a routerLink="/event/{{event.id}}">{{event.name}}</a>
-  </li>
-</ul>
+<div class="events">
+  <div class="event" *ngFor="let event of events">
+    <app-transaction *ngIf="event.type==='transaction'" [transaction]="event"></app-transaction>
+    <app-article *ngIf="event.type==='article'" [article]="event"></app-article>
+  </div>
+</div>

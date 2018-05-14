@@ -12,11 +12,11 @@ import { EVENTS } from './mock-events';
 export class EventService {
   constructor() {}
 
-  getEvents(): Observable<Event[]> {
+  getEvents(): Observable<Object[]> {
     return of(EVENTS);
   }
 
-  getEvent(id: number): Observable<Event> {
+  getEvent(id: number): Observable<Object> {
     return of(EVENTS.find(event => event.id === id));
   }
 }

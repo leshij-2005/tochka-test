@@ -1,1 +1,46 @@
 /* You can add global styles to this file, and also import other style files */
+body
+{
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 16px;
+}
+
+.event__wrap
+{
+  display: flex;
+  align-items: center;
+
+  padding: 10px 0;
+}
+
+.event__wrap > *
+{
+  padding: 0 10px;
+}
+
+.event__id
+{
+  width: 5%;
+  flex-shrink: 1;
+
+  text-align: center;
+}
+
+.event__date
+{
+  width: 30%;
+  flex-shrink: 1;
+}
+
+.event__inner
+{
+  display: flex;
+  align-items: center;
+
+  width: 100%;
+}
+
+.event__inner > *
+{
+  width: 100%;
+}
