@@ -32,7 +32,7 @@ export class TransactionComponent implements OnInit {
   }
 
   remove(): void {
-    this.transaction.deleted = true;
+    this.eventService.deleteEvent(this.transaction.id).subscribe(() => this.transaction.deleted = true);
 
     this.goBack();
   }

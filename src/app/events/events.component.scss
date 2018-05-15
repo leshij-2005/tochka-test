@@ -4,6 +4,9 @@
   {
     padding-bottom: 20px;
 
+    display: flex;
+    align-items: center;
+
     &-sorting
     {
       a
@@ -21,6 +24,16 @@
         {
           font-weight: bold;
         }
+      }
+    }
+
+    &-actions
+    {
+      margin-left: auto;
+
+      button
+      {
+        margin-left: 20px;
       }
     }
   }

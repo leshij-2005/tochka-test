@@ -32,7 +32,10 @@ export class ArticleComponent implements OnInit {
   }
 
   read(): void {
-    this.article.isRead = true;
+    this.eventService.updateEvent(this.article.id, {isRead: true})
+      .subscribe(() => {
+        this.article.isRead = true;
+      });
 
     this.goBack();
   }

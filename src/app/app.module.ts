@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { EventsComponent } from './events/events.component';
-import { EventDetailComponent } from './detail/detail.component';
+import { EventAddComponent } from './add/add.component';
 import { TransactionComponent } from './transaction/transaction.component';
 import { ArticleComponent } from './article/article.component';
 
@@ -14,7 +14,7 @@ import { AppRoutingModule } from './app-routing.module';
   declarations: [
     AppComponent,
     EventsComponent,
-    EventDetailComponent,
+    EventAddComponent,
     TransactionComponent,
     ArticleComponent
   ],

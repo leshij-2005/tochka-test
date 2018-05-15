@@ -1,12 +1,16 @@
 <div class="events">
   <div class="events__toolbar">
     <div class="events__toolbar-sorting">Сортировать: <a (click)="sort('date')" [class.active]="sortBy=='date'">по дате</a> <a (click)="sort('type')" [class.active]="sortBy=='type'" >по типу</a></div>
+    <div class="events__toolbar-actions">
+      <button routerLink="/add/transaction">Добавить транзакцию</button>
+      <button routerLink="/add/article">Добавить новость</button>
+    </div>
   </div>
   <div class="event" *ngFor="let event of events">
 
     <div routerLink="/transaction/{{event.id}}" *ngIf="event.type==='transaction'" class="event__wrap event__transaction event__transaction_{{event.direction}}">
       <div class="event__id">{{event.id}}</div>
-      <div class="event__date">{{event.date}}</div>
+      <div class="event__date">{{event.date.toLocaleDateString()}} {{event.date.toLocaleTimeString()}}</div>
       <div class="event__inner">
         <div class="event__transaction-amount">{{event.direction === 'in' ? '+' : '-'}} {{event.amount}} {{event.currency}}</div>
         <div class="event__transaction-from">{{event.from}}</div>
@@ -15,7 +19,7 @@
 
     <div routerLink="/article/{{event.id}}" *ngIf="event.type==='article'" class="event__wrap event__article {{event.isRead ? 'event__article_read' : ''}}">
       <div class="event__id">{{event.id}}</div>
-      <div class="event__date">{{event.date}}</div>
+      <div class="event__date">{{event.date.toLocaleDateString()}} {{event.date.toLocaleTimeString()}}</div>
       <div class="event__inner">
         <div class="event__article-ttl">{{event.title}}</div>
         <div class="event__article-read">{{event.isRead ? 'Прочитано' : ''}}</div>

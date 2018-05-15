@@ -1,0 +1,57 @@
+<div class="add">
+  <h2>Добавить {{event.type==='article' ? 'новость' : 'транзакцию'}}</h2>
+  <form class="form" (submit)="add()">
+    <div *ngIf="event.type==='article'">
+      <label>
+        <span>Заголовок:</span>
+        <input type="text" [(ngModel)]="event.title" name="title" required />
+      </label>
+
+      <label>
+        <span>Содержание:</span>
+        <textarea [(ngModel)]="event.content" name="content" required></textarea>
+      </label>
+
+      <input type="hidden" [(ngModel)]="event.isRead" name="isRead" value="false"/>
+    </div>
+
+    <div *ngIf="event.type==='transaction'">
+      <label>
+        <span>Сумма:</span>
+        <input type="tel" [(ngModel)]="event.amount" name="amount" required />
+      </label>
+
+      <label>
+        <span>Валюта:</span>
+        <select [(ngModel)]="event.currency" name="currency" required>
+          <option>RUB</option>
+          <option>KZT</option>
+          <option>BYR</option>
+        </select>
+      </label>
+
+      <label>
+        <span>Тип:</span>
+        <select [(ngModel)]="event.direction" name="direction" required>
+          <option value="out">Исходящая</option>
+          <option value="in">Входящая</option>
+        </select>
+      </label>
+
+      <label>
+        <span>От кого:</span>
+        <input type="text" [(ngModel)]="event.from" name="from" required />
+      </label>
+
+      <label>
+        <span>Описание:</span>
+        <textarea [(ngModel)]="event.description" name="description" required></textarea>
+      </label>
+    </div>
+
+    <div class="form__buttons">
+      <button type="reset" (click)="goBack()">Назад</button>
+      <button type="submit">Добавить</button>
+    </div>
+  </form>
+</div>
