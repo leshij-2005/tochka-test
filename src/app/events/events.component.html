@@ -1,4 +1,7 @@
 <div class="events">
+  <div class="events__toolbar">
+    <div class="events__toolbar-sorting">Сортировать: <a (click)="sort('date')" [class.active]="sortBy=='date'">по дате</a> <a (click)="sort('type')" [class.active]="sortBy=='type'" >по типу</a></div>
+  </div>
   <div class="event" *ngFor="let event of events">
 
     <div routerLink="/transaction/{{event.id}}" *ngIf="event.type==='transaction'" class="event__wrap event__transaction event__transaction_{{event.direction}}">

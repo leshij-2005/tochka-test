@@ -11,6 +11,7 @@ import { Article } from '../article/article';
 
 export class EventsComponent implements OnInit {
   events = [];
+  sortBy:string = 'date';
 
   constructor(private eventService: EventService) {}
 
@@ -21,5 +22,11 @@ export class EventsComponent implements OnInit {
 
   ngOnInit() {
     this.getEvents();
+  }
+
+  sort(type: string): void {
+    this.sortBy = type;
+
+    this.events.sort((a, b) => a[type] > b[type] ? 1 : -1);
   }
 }
