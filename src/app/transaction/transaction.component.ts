@@ -1,4 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Location } from '@angular/common';
+
 import { Transaction } from './transaction';
 import { EventService } from '../events/event.service';
 
@@ -11,7 +14,26 @@ import { EventService } from '../events/event.service';
 export class TransactionComponent implements OnInit {
   @Input() transaction: Transaction;
 
-  constructor(private eventService: EventService) {}
+  constructor(private route: ActivatedRoute, private eventService: EventService, private location: Location) {}
 
-  ngOnInit() {}
+  ngOnInit(): void {
+    this.get();
+  }
+
+  get(): void {
+    const id = +this.route.snapshot.paramMap.get('id');
+
+    this.eventService.getEvent(id)
+      .subscribe((event: Transaction) => this.transaction = event);
+  }
+
+  goBack(): void {
+    this.location.back();
+  }
+
+  remove(): void {
+    this.transaction.deleted = true;
+
+    this.goBack();
+  }
 }

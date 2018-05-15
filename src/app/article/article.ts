@@ -4,4 +4,5 @@ export class Article {
   title: string;
   content: string;
   isRead: boolean;
+  deleted: boolean;
 }

@@ -1,0 +1,15 @@
+<article class="transaction">
+  <h1>Транзакция №{{transaction.id}}</h1>
+  <div class="content">
+    <p>{{transaction.description}}</p>
+    <p>Тип транзакции: {{transaction.direction === 'in' ? 'Приход' : 'Расход'}}</p>
+    <p>Сумма: {{transaction.amount}} {{transaction.currency}}</p>
+    <p>Дата: {{transaction.date}}</p>
+    <p>От кого: {{transaction.from}}</p>
+  </div>
+
+  <footer>
+    <button (click)="goBack()">Назад</button>
+    <button (click)="remove()">Удалить</button>
+  </footer>
+</article>

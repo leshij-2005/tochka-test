@@ -6,4 +6,5 @@ export class Transaction {
   from: string;
   description: string;
   direction: string;
+  deleted: boolean;
 }

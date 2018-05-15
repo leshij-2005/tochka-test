@@ -14,7 +14,7 @@ export class EventService {
   constructor() {}
 
   getEvents(): Observable<Object[]> {
-    this.events = events;
+    this.events = events.filter(event => !event.deleted);
 
     return of(this.events);
   }

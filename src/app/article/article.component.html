@@ -3,6 +3,6 @@
   <div class="content">{{article.content}}</div>
   <footer>
     <button (click)="goBack()">Назад</button>
-    <button *ngIf="!article.isRead" (click)="readArticle()">Ознакомлен</button>
+    <button *ngIf="!article.isRead" (click)="read()">Ознакомлен</button>
   </footer>
 </article>

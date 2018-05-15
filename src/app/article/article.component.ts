@@ -17,10 +17,10 @@ export class ArticleComponent implements OnInit {
   constructor(private route: ActivatedRoute, private eventService: EventService, private location: Location) {}
 
   ngOnInit(): void {
-    this.getArticle();
+    this.get();
   }
 
-  getArticle(): void {
+  get(): void {
     const id = +this.route.snapshot.paramMap.get('id');
 
     this.eventService.getEvent(id)
@@ -31,7 +31,7 @@ export class ArticleComponent implements OnInit {
     this.location.back();
   }
 
-  readArticle(): void {
+  read(): void {
     this.article.isRead = true;
 
     this.goBack();

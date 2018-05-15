@@ -19,14 +19,6 @@ export class EventsComponent implements OnInit {
       .subscribe(events => this.events = events);
   }
 
-  removeEvent(id: number): void {    
-    this.events = this.events.filter(event => event.id !== id);
-  }
-
-  readArticle(article: Article): void {    
-    article.isRead = true;
-  }
-
   ngOnInit() {
     this.getEvents();
   }

@@ -1,5 +1,6 @@
 .event
-{cursor: pointer;
+{
+  cursor: pointer;
 
   &__wrap
   {
@@ -84,7 +85,12 @@
 
   &__article
   {
-    &_unread
+    &:hover &-ttl
+    {
+      text-decoration: underline;
+    }
+
+    &_read
     {
       background: #eee;
 
